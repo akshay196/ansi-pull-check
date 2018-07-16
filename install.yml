@@ -1,0 +1,10 @@
+- name: "Install package"
+  hosts: 127.0.0.1
+  connection: local
+  become: yes
+  tasks:
+    - name: Install xclip
+      dnf:
+        name=xclip
+        state=latest
+      when: ansible_distribution == "Fedora"
